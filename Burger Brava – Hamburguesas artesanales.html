@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Burger Brava – Hamburguesas artesanales</title>
+<style>
+:root{--bg:#fff8ee;--card:#ffffff;--tx:#2b1a12;--mut:#7a6558;--ac:#d9381e;--ac2:#f4a81d;--hd:#2b1a12;--hdt:#fff8ee;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#1a110c;--card:#2a1c14;--tx:#fbeee0;--mut:#c4a995;--hd:#0f0905;--hdt:#fbeee0}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#1a110c;--card:#2a1c14;--tx:#fbeee0;--mut:#c4a995;--hd:#0f0905;--hdt:#fbeee0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Trebuchet MS",system-ui,sans-serif;line-height:1.5}
+header{background:var(--hd);color:var(--hdt);display:flex;justify-content:space-between;align-items:center;padding:14px 5vw;position:sticky;top:env(safe-area-inset-top,0px);z-index:5;flex-wrap:wrap;gap:8px}
+header b{font-size:1.4rem;color:var(--ac2)}
+nav a{color:var(--hdt);text-decoration:none;margin-left:16px;font-weight:bold}
+nav a:hover{color:var(--ac2)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;padding:48px 5vw}
+.hero h1{font-size:clamp(2rem,6vw,3.6rem);line-height:1.05;margin:0 0 12px}
+.hero h1 span{color:var(--ac)}
+.btn{display:inline-block;background:var(--ac);color:#fff;padding:12px 24px;border-radius:30px;text-decoration:none;font-weight:bold;border:0;cursor:pointer;font-size:1rem}
+.btn.alt{background:var(--ac2);color:#2b1a12;margin-left:8px}
+section{padding:40px 5vw}
+h2{font-size:2rem;margin:0 0 6px}.sub{color:var(--mut);margin:0 0 24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:var(--card);border-radius:18px;padding:16px;box-shadow:0 4px 14px rgba(0,0,0,.12);text-align:center;transition:transform .2s}
+.card:hover{transform:translateY(-6px)}
+.card h3{margin:8px 0 2px}.card p{color:var(--mut);margin:0 0 8px;font-size:.92rem}
+.price{font-weight:bold;color:var(--ac);font-size:1.3rem}
+.video{display:grid;grid-template-columns:1.2fr 1fr;gap:24px;align-items:center}
+.screen{position:relative;background:#2b1a12;border-radius:18px;overflow:hidden;aspect-ratio:16/9}
+.screen svg{width:100%;height:100%;display:block}
+.layer{opacity:0;transform:translateY(-120px)}
+.playing .layer{animation:drop 6s infinite both}
+@keyframes drop{0%{opacity:0;transform:translateY(-120px)}12%{opacity:1;transform:translateY(0)}85%{opacity:1;transform:translateY(0)}100%{opacity:0;transform:translateY(0)}}
+.playing .l1{animation-delay:0s}.playing .l2{animation-delay:.4s}.playing .l3{animation-delay:.8s}.playing .l4{animation-delay:1.2s}.playing .l5{animation-delay:1.6s}
+.pl{position:absolute;inset:auto 12px 12px auto}
+.table{overflow-x:auto}
+form{display:grid;gap:10px;max-width:480px}
+input,select,textarea{padding:12px;border-radius:10px;border:1px solid var(--mut);background:var(--card);color:var(--tx);font:inherit}
+footer{background:var(--hd);color:var(--hdt);text-align:center;padding:24px 5vw;margin-top:20px}
+#ok{color:var(--ac);font-weight:bold}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;counter-reset:s}.step{background:var(--card);border-radius:18px;padding:18px;box-shadow:0 4px 14px rgba(0,0,0,.12);position:relative}.step:before{counter-increment:s;content:counter(s);display:inline-block;background:var(--ac);color:#fff;width:34px;height:34px;line-height:34px;text-align:center;border-radius:50%;font-weight:bold;margin-bottom:8px}.step h3{margin:0 0 4px}.step p{margin:0;color:var(--mut);font-size:.92rem}.soc{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}.soc span{background:var(--card);padding:10px 16px;border-radius:30px;box-shadow:0 2px 8px rgba(0,0,0,.12);font-weight:bold}.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}.info div{background:var(--card);padding:18px;border-radius:18px;box-shadow:0 4px 14px rgba(0,0,0,.12)}.info h3{margin:0 0 6px;color:var(--ac)}.info p{margin:4px 0}
+@media(max-width:700px){.hero,.video{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><b>🍔 Burger Brava</b><nav><a href="#menu">Menú</a><a href="#proceso">Proceso</a><a href="#video">Video</a><a href="#pedido">Pedidos</a><a href="#contacto">Contacto</a></nav></header>
+
+<div class="hero">
+<div>
+<h1>Hamburguesas <span>artesanales</span> hechas al momento</h1>
+<p>Carne 100% de res, pan horneado cada mañana e ingredientes frescos. Pide en local o a domicilio.</p>
+<a class="btn" href="#pedido">Haz tu pedido</a><a class="btn alt" href="#menu">Ver menú</a>
+</div>
+<svg viewBox="0 0 300 260" role="img" aria-label="Hamburguesa clásica">
+<ellipse cx="150" cy="238" rx="110" ry="14" fill="rgba(0,0,0,.2)"/>
+<path d="M45 110Q45 25 150 25Q255 25 255 110Z" fill="#e0912f"/>
+<g fill="#fff3c4"><ellipse cx="100" cy="60" rx="9" ry="4"/><ellipse cx="150" cy="45" rx="9" ry="4"/><ellipse cx="200" cy="60" rx="9" ry="4"/><ellipse cx="125" cy="80" rx="9" ry="4"/><ellipse cx="180" cy="85" rx="9" ry="4"/></g>
+<path d="M38 112Q60 135 85 112Q110 135 135 112Q160 135 185 112Q210 135 235 112Q250 128 262 112L262 124L38 124Z" fill="#7dc242"/>
+<path d="M45 124H255L240 150H60Z" fill="#f4a81d"/>
+<circle cx="80" cy="145" r="0" fill="none"/>
+<rect x="40" y="148" width="220" height="34" rx="17" fill="#5a2d17"/>
+<g fill="#e64a2a"><ellipse cx="85" cy="190" rx="26" ry="8"/><ellipse cx="150" cy="190" rx="26" ry="8"/><ellipse cx="215" cy="190" rx="26" ry="8"/></g>
+<path d="M45 200H255Q255 235 215 235H85Q45 235 45 200Z" fill="#e0912f"/>
+</svg>
+</div>
+
+<section id="menu">
+<h2>Nuestro menú</h2><p class="sub">Todas incluyen papas fritas y bebida pequeña en combo.</p>
+<div class="grid" id="cards"></div>
+</section>
+
+<section id="proceso">
+<h2>Nuestro proceso</h2><p class="sub">Así hacemos cada hamburguesa, de principio a fin.</p>
+<div class="steps">
+<div class="step"><h3>Selección</h3><p>Compramos carne, vegetales y pan frescos cada día a proveedores locales.</p></div>
+<div class="step"><h3>Preparación</h3><p>Lavamos y cortamos los vegetales, y formamos los medallones de carne a mano.</p></div>
+<div class="step"><h3>Cocción</h3><p>Cocinamos a la plancha a punto justo, con el queso derretido al final.</p></div>
+<div class="step"><h3>Armado</h3><p>Armamos capa por capa: pan, carne, queso, vegetales y salsa de la casa.</p></div>
+<div class="step"><h3>Entrega</h3><p>Empacamos caliente y entregamos en el local o a domicilio.</p></div>
+</div>
+</section>
+
+<section id="video">
+<h2>Mira cómo la preparamos</h2><p class="sub">Del pan a tu mesa en menos de 10 minutos.</p>
+<div class="video">
+<div class="screen" id="scr">
+<svg viewBox="0 0 320 180" aria-label="Animación de preparación de una hamburguesa">
+<rect width="320" height="180" fill="#3b2418"/>
+<ellipse cx="160" cy="160" rx="90" ry="10" fill="#1d110a"/>
+<g class="layer l1"><path d="M75 150Q75 175 105 175H215Q245 175 245 150Z" fill="#e0912f"/></g>
+<g class="layer l2"><rect x="70" y="122" width="180" height="26" rx="13" fill="#5a2d17"/></g>
+<g class="layer l3"><rect x="68" y="108" width="184" height="14" rx="7" fill="#f4a81d"/></g>
+<g class="layer l4"><path d="M68 104Q95 122 120 104Q145 122 170 104Q195 122 220 104Q238 118 252 104L252 94H68Z" fill="#7dc242"/></g>
+<g class="layer l5"><path d="M75 92Q75 30 160 30Q245 30 245 92Z" fill="#e0912f"/><g fill="#fff3c4"><ellipse cx="125" cy="55" rx="7" ry="3"/><ellipse cx="165" cy="48" rx="7" ry="3"/><ellipse cx="200" cy="62" rx="7" ry="3"/></g></g>
+</svg>
+<button class="btn pl" id="pb">▶ Reproducir</button>
+</div>
+<div><p>Cada hamburguesa se arma capa por capa: pan, carne a la plancha, queso derretido, vegetales frescos y la salsa de la casa.</p><p><b>Tip:</b> aquí puedes insertar tu propio video con la etiqueta <code>&lt;video&gt;</code>.</p></div>
+</div>
+</section>
+
+<section id="pedido">
+<h2>Haz tu pedido</h2><p class="sub">Elige tu hamburguesa y cuántas quieres.</p>
+<form id="f">
+<input id="n" placeholder="Tu nombre" required>
+<select id="h"></select>
+<input id="q" type="number" min="1" max="20" value="1" aria-label="Cantidad">
+<textarea id="d" rows="2" placeholder="Dirección o «retiro en local»"></textarea>
+<button class="btn" type="submit">Enviar pedido</button>
+<div id="ok" role="status"></div>
+</form>
+</section>
+
+<section id="contacto">
+<h2>Contáctanos</h2><p class="sub">Ven a visitarnos o escríbenos.</p>
+<div class="info">
+<div><h3>👤 Propietario</h3><p>Miller de la Cruz</p><p>Emprendedor local y fundador de Burger Brava.</p></div>
+<div><h3>📍 Ubicación</h3><p>José Luis Tamayo, Muey</p><p>Al lado de la Escuela Mercedes Moreno Irigoyen.</p></div>
+<div><h3>🕒 Horario</h3><p>Lunes a domingo</p><p>12:00 – 23:00</p></div>
+<div><h3>📞 Pedidos</h3><p>WhatsApp: 099 999 9999</p><p>burgerbrava@correo.com</p></div>
+</div>
+<h3>Síguenos en redes</h3>
+<div class="soc"><span>📸 Instagram @burgerbrava.ec</span><span>👍 Facebook /BurgerBravaMuey</span><span>🎵 TikTok @burgerbrava_oficial</span><span>💬 WhatsApp 099 999 9999</span></div>
+</section>
+<footer>© 2026 Burger Brava · Propietario: Miller de la Cruz · José Luis Tamayo, Muey</footer>
+
+<script>
+var M=[["Clásica","Carne, lechuga, tomate y salsa de la casa",4.5,"#e64a2a"],["Doble Queso","Doble carne y doble queso cheddar",6.5,"#f4a81d"],["BBQ Bacon","Tocino crocante y salsa BBQ ahumada",7,"#8a3b1e"],["Veggie","Medallón de lentejas y vegetales",5.5,"#7dc242"]];
+function svg(c){return '<svg viewBox="0 0 200 150"><path d="M30 70Q30 12 100 12Q170 12 170 70Z" fill="#e0912f"/><rect x="26" y="72" width="148" height="10" rx="5" fill="#7dc242"/><rect x="24" y="82" width="152" height="10" rx="5" fill="'+c+'"/><rect x="28" y="92" width="144" height="22" rx="11" fill="#5a2d17"/><path d="M30 118H170Q170 142 140 142H60Q30 142 30 118Z" fill="#e0912f"/></svg>'}
+var c=document.getElementById("cards"),s=document.getElementById("h");
+M.forEach(function(m){c.innerHTML+='<div class="card">'+svg(m[3])+'<h3>'+m[0]+'</h3><p>'+m[1]+'</p><div class="price">$'+m[2].toFixed(2)+'</div></div>';s.innerHTML+='<option>'+m[0]+' ($'+m[2].toFixed(2)+')</option>'});
+var scr=document.getElementById("scr"),pb=document.getElementById("pb");
+pb.onclick=function(){var p=scr.classList.toggle("playing");pb.textContent=p?"⏸ Pausar":"▶ Reproducir"};
+document.getElementById("f").onsubmit=function(e){e.preventDefault();document.getElementById("ok").textContent="¡Gracias "+document.getElementById("n").value+"! Recibimos tu pedido de "+document.getElementById("q").value+" × "+s.value+".";};
+</script>
+</body>
+</html>
